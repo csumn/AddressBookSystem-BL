@@ -10,7 +10,7 @@ public class AddressBookMain {
 		Scanner scanner = new Scanner(System.in);
 		boolean condition = true;
 		while (condition) {
-			System.out.println("Enter\n \n 1. To add a new AddressBook\n 2. To add contact in the AddressBook\n "
+			System.out.println("\n Select any option from below :\n \n 1. To add a new AddressBook\n 2. To add contact in the AddressBook\n "
 					+ "3. To edit the contact in the AddressBook\n 4. To delete the contact in the AddressBook\n 5. To delete the AddressBook\n "
 					+ "6. To Print the AddressBook\n 7. To Print the contacts in the AddressBook\n 0. to exit");
 			int choice = scanner.nextInt();

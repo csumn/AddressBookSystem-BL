@@ -5,17 +5,29 @@ import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
-
 	List<ContactDetails> contactDetailsList = new ArrayList<ContactDetails>();
 	Scanner scanner = new Scanner(System.in);
 
 	public void addContact() {
+		ContactDetails contactDetails = new ContactDetails();
 		System.out.println("Enter the number of contacts you want to enter");
 		int number = scanner.nextInt();
-		for (int i = 0; i < number; i++) {
-			System.out.println("Enter the contact details of person ");
-			writeContact();
+		for (int i = 1; i <= number; i++) {
+			System.out.println("\nFor contact "+i+" Enter the first name of person to check if there are any such names");			
+			String name = scanner.next();
+			contactDetails.setFirstName(name);
+			if (!isPersonExist(contactDetails.getFirstName())){
+				System.out.println("\nPerfect ! No contacts with that name, you can enter the details now...\n ");
+				writeContact();
+			}else {
+				System.out.println("oooops!  The entered contact already exist!");
+				System.out.println("redirecting to main menu");
+			}
 		}
+	}
+
+	private boolean isPersonExist(String name){
+		return contactDetailsList.stream().anyMatch(contact -> contact.getFirstName().equals(name) || contact.getLastName().equals(name));
 	}
 
 	public void writeContact() {
