@@ -38,11 +38,11 @@ public class AddressBook {
 		String emailId = scanner.next();
 		person = new ContactDetails(firstName, lastName, address, city, state, zipCode, mobileNumber, emailId);
 		contactDetailsList.add(person);
-		printContact();
+		System.out.println("Details Updated!");
 	}
 
 	public void editContact() {
-		System.out.println("Enter the first name of person to edit contact");
+		System.out.println("Enter the first name of person to edit the contact");
 		String editName = scanner.next();
 		boolean edited = false;
 		for (int i = 0; i < contactDetailsList.size(); i++) {
@@ -59,7 +59,7 @@ public class AddressBook {
 	}
 
 	public void deleteContact() {
-		System.out.println("Enter the first name of person to delete contact");
+		System.out.println("Enter the first name of person to delete the contact");
 		String deleteName = scanner.next();
 		int i = 0;
 		for (; i < contactDetailsList.size(); i++) {
@@ -70,26 +70,10 @@ public class AddressBook {
 		}
 		if (i < contactDetailsList.size()) {
 			contactDetailsList.remove(i);
-			System.out.println("Contact Deleted");
-			System.out.println("Remaining contacts in the book are..");
-			printContact();
+			System.out.println("Contact Deleted sucsessfully");
 		} else {
 			System.out.println("Contact not found");
 		}
-
-	}
-
-	public void printContact() {
-		for (int i = 0; i < contactDetailsList.size(); i++) {
-			System.out.println("Contact Details");
-			System.out.println("Name         : " + contactDetailsList.get(i).getFirstName() + " "
-					+ contactDetailsList.get(i).getLastName() + "\n" + "Address      : "
-					+ contactDetailsList.get(i).getAddress() + "\n" + "City         : "
-					+ contactDetailsList.get(i).getCity() + "\n" + "State        : "
-					+ contactDetailsList.get(i).getState() + "\n" + "ZipCode      : "
-					+ contactDetailsList.get(i).getZipCode() + "\n" + "MobileNumber : "
-					+ contactDetailsList.get(i).getMobileNumber() + "\n" + "EmailId      : "
-					+ contactDetailsList.get(i).getEmailId() + "\n");
-		}
 	}
 }
+
